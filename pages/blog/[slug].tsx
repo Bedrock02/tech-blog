@@ -1,18 +1,14 @@
 import fs from "fs";
 import matter from "gray-matter";
-import md from 'markdown-it'
-
-export default function Blog({ frontmatter ,content}) {
-
-  console.log(frontmatter);
-  console.log(content);
+import ReactMarkdown from 'react-markdown'
+export default function Blog({ frontmatter, content}) {
 
   return (
     <div className="w-100">
       <img src={`/${frontmatter.socialImage}`} className="w-1/4 mx-auto" />
       <div className="prose w-3/4  mx-auto">
         <h1 className="text-sm">{frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: md().render(content) }}></div>
+        <ReactMarkdown>{content}</ReactMarkdown>
       </div>
     </div>
   );
