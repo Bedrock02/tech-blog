@@ -2,14 +2,19 @@ import Card from "../components/Card/card";
 import fs from 'fs'
 import matter from "gray-matter";
 
-const Home = ({ posts }) => (
-  <div>
-    {posts.map((post,index)=>(
-      <Card key={index} post={post} />
-    ))}
-  </div>
-);
+export default function Home(props) {
+  console.log(props.posts.data)
+  const {posts} = props
+  return (
+    <div>
 
+      {posts.map((post,index)=>(
+        <Card key={index} post={post} />
+      ))}
+
+    </div>
+  );
+}
 
 export async function getStaticProps(){
   // Getting all our posts at build time
@@ -38,5 +43,3 @@ export async function getStaticProps(){
     }
   }
 }
-
-export default Home;

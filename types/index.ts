@@ -12,7 +12,7 @@ interface PostInfo {
 
 interface PageData {
     slug: string,
-    data: Record<string, any>
+    frontmatter: Record<string, any>
   }
 
 export type {
