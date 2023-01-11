@@ -1,19 +1,29 @@
 import Link from "next/link";
+import Image from "next/image";
+import { PageData } from '../../types'
 
-const Card = ({ post }) => {
-  console.log(post)
+interface CardProps {
+  post: PageData
+}
+
+const Card = ({ post }: CardProps) => {
+  const { data: { socialImage, metaDesc, date, metaTitle }} = post;
+  const { slug } = post;
   return (
     <div className="container w-100 mx-auto mb-16">
-      <img
+      <Image
+        alt="blog-image"
         className="w-3/4 rounded-lg mx-auto drop-shadow-lg"
-        src={post.data.socialImage} />
-      <Link href={`blog/${post.slug}`}>
+        src={socialImage} />
+      
+      <Link href={`blog/${slug}`}>
         <h1 className="text-4xl font-semibold mt-4">
-          {post.data.metaTitle}
+          {metaTitle}
         </h1>
       </Link>
-      <p className="text-gray-600 text-sm">{post.data.date}</p>
-      <p>{post.data.metaDesc}</p>
+      
+      <p className="text-gray-600 text-sm">{date}</p>
+      <p>{metaDesc}</p>
     </div>
   );
 }
