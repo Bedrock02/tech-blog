@@ -4,9 +4,8 @@ import ReactMarkdown from 'react-markdown'
 export default function Blog({ frontmatter, content}) {
 
   return (
-    <div className="w-100">
-      <img src={`/${frontmatter.socialImage}`} className="w-1/4 mx-auto" />
-      <div className="prose w-3/4  mx-auto">
+    <div className="w-full">
+      <div className="prose max-w-full mx-auto bg-stone-200 px-6 rounded-md">
         <h1 className="text-sm">{frontmatter.title}</h1>
         <ReactMarkdown>{content}</ReactMarkdown>
       </div>

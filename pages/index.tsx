@@ -1,18 +1,31 @@
 import Card from "../components/Card/card";
 import fs from 'fs'
 import matter from "gray-matter";
+import Head from 'next/head';
 
-export default function Home(props) {
-  console.log(props.posts.data)
-  const {posts} = props
+interface Post {
+  slug: string
+  data: any
+}
+
+interface HomeProps {
+  posts: Post[]
+}
+
+export default function Home(props: HomeProps) {
+  const { posts } = props
   return (
-    <div>
+    <>
+      <Head>
+        <link rel="payload" href="/images/pexels-stephan-seeber-1054218.jpg" as="image"></link>
+      </Head>
+      <div className="flex flex-row flex-wrap justify-evenly">
+        {posts.map((post,index)=>(
+          <Card key={index} post={post} />
+        ))}
 
-      {posts.map((post,index)=>(
-        <Card key={index} post={post} />
-      ))}
-
-    </div>
+      </div>
+    </>
   );
 }
 
