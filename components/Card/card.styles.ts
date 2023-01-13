@@ -33,19 +33,6 @@ const styles = {
         'border-t-2',
         'py-3'
     ],
-    tagContainer: [
-        'flex',
-        'items-stretch',
-        'justify-evenly',
-        'list-none',
-        'mt-4'
-    ],
-    tag: [
-        'bg-slate-500',
-        'px-2',
-        'rounded-lg',
-        'text-slate-50',
-    ]
 }
 
 export default generateTailWindStrings(styles);

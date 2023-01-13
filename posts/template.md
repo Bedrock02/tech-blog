@@ -1,14 +1,11 @@
 ---
 title: 'My Second Blog of 2022'
-metaTitle: 'My Second blog of 2022'
 metaDesc: 'How to make a blogging website using Next.js, Markdown and style it using TailwindCSS.'
 socialImage: /images/ny2.jpg
 date: 'Feb 2, 2022'
 tags:
   - nextjs
   - personal
-  - health
-  - work
 ---
 
 # The main content

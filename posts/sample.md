@@ -1,14 +1,11 @@
 ---
 title: 'My First Blog of 2022'
-metaTitle: 'My First blog of 2022'
 metaDesc: 'How to make a blogging website using Next.js, Markdown and style it using TailwindCSS.'
 socialImage: /images/ny1.jpg
 date: 'Feb 2, 2022'
 tags:
   - nextjs
   - personal
-  - health
-  - work
 ---
 # The main content
 # One morning, when Gregor Samsa woke from troubled dreams.
