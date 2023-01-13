@@ -1,78 +1,13 @@
 import fs from "fs";
 import matter from "gray-matter";
-import ReactMarkdown from 'react-markdown';
-import { readTime } from "../../lib/utils";
-import { AiFillCalendar, AiFillClockCircle } from 'react-icons/ai'
+import Post from "../../components/Post/Post";
 
-import { generateTailWindStrings } from "../../lib/utils"
-
-const blogStyles = generateTailWindStrings({
-    articleContainer: [
-        'bg-stone-100',
-        'prose',
-        'max-w-full',
-        'mx-auto',
-        'px-6',
-    ],
-    header: [
-        'align-middle',
-        'flex',
-        'flex-col',
-        'items-center',
-        'justify-evenly',
-        'py-10',
-    ],
-    metaDesc: [
-        'w-3/5',
-        'text-center',
-        'text-base',
-        'text-stone-500',
-    ],
-    metaData: [
-        'flex',
-        'justify-around',
-        'text-stone-500',
-        'w-3/5',
-    ],
-    metaDataItem: [
-        'flex',
-        'flex-row',
-        'items-center',
-        'gap-1',
-    ],
-    content: [
-        'border-t-2',
-        'border-t-stone-500',
-        'py-20',
-    ]
-
-});
 
 // @ts-ignore
 export default function Blog({ frontmatter, content}) {
-
+  const { title, metaDesc, date } = frontmatter;
   return (
-    <div className="w-full">
-      <div className={blogStyles.articleContainer}>
-        <section className={blogStyles.header}>
-          <h1 className="text-lg-2xl">{frontmatter.title}</h1>
-          <p className={blogStyles.metaDesc}>{frontmatter.metaDesc}</p>
-          <div className={blogStyles.metaData}>
-            <div className={blogStyles.metaDataItem}>
-              <AiFillCalendar />
-              <span>{frontmatter.date}</span>
-            </div>
-            <div className={blogStyles.metaDataItem}>
-              <AiFillClockCircle />
-              <span>{`~${readTime(content)} min read`}</span>
-            </div>
-          </div>
-        </section>
-        <section className={blogStyles.content}>
-          <ReactMarkdown>{content}</ReactMarkdown>
-        </section>
-      </div>
-    </div>
+    <Post title={title} metaDesc={metaDesc} date={date} content={content} />
   );
 }
 

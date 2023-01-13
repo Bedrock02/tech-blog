@@ -6,8 +6,6 @@ tags:
   - product
 ---
 
-# Building A New Product
-
 As a developer, close friends and family always present ideas for an app. There are ambitious ideas and other ideas are just not well thought out. In a perfect world, these ideas come with a breakdown of the vision, mission, milestones and technical details. Here are the details that I believe should be written down before you bring an idea to any developer.
 
 
