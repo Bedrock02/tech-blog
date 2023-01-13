@@ -14,13 +14,13 @@ export const generateTailWindStrings = (styles: tailWindCollections): tailWindSt
  * @param content 
  * @returns 
  */
-export const readTime = (content) => {
+export const readTime = (content: string) => {
     const WPS = 275 / 60
   
     var images = 0
     const regex = /\w/
   
-    let words = content.split(' ').filter((word) => {
+    let words = content.split(' ').filter((word: string) => {
       if (word.includes('<img')) {
         images += 1
       }

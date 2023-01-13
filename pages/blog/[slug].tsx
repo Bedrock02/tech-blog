@@ -5,6 +5,7 @@ import blogStyles from './blog.styles';
 import { readTime } from "../../lib/utils";
 import { AiFillCalendar, AiFillClockCircle } from 'react-icons/ai'
 
+// @ts-ignore
 export default function Blog({ frontmatter, content}) {
 
   return (
@@ -42,14 +43,19 @@ export async function getStaticPaths() {
       slug: files.replace(".md", ""),
     },
   }));
-  console.log("paths", paths)
+  
   return {
     paths,
     fallback:false
   }
 }
 
-export async function getStaticProps({params:{slug}}){
+interface GetStaticProps {
+  params: {
+    slug: string
+  }
+}
+export async function getStaticProps({ params:{ slug } }: GetStaticProps){
     const fileName = fs.readFileSync(`posts/${slug}.md`, "utf-8");
     const { data: frontmatter, content } = matter(fileName);
     return {
