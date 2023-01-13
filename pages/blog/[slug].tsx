@@ -1,7 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
 import ReactMarkdown from 'react-markdown';
-import blogStyles from './blog.styles';
+import blogStyles from '../../styles/pages/blog.styles';
 import { readTime } from "../../lib/utils";
 import { AiFillCalendar, AiFillClockCircle } from 'react-icons/ai'
 
