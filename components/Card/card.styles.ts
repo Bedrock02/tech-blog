@@ -1,3 +1,5 @@
+import { generateTailWindStrings } from '../../lib/utils';
+
 const styles = {
     container: [
         'bg-stone-200',
@@ -15,22 +17,34 @@ const styles = {
         'px-10',
         'py-5',
         'rounded-md',
-    ].join(' '),
+    ],
     title: [
         'font-semibold',
         'mt-4',
         'py-3',
         'text-3xl',
-    ].join(' '),
+    ],
     date: [
         'text-gray-600',
         'text-sm'
-    ].join(' '),
+    ],
     metaData: [
         'border-black',
         'border-t-2',
         'py-3'
-    ].join(' '),
+    ],
+    tagContainer: [
+        'flex',
+        'items-stretch',
+        'justify-evenly',
+        'list-none',
+    ],
+    tag: [
+        'bg-slate-500',
+        'px-2',
+        'rounded-lg',
+        'text-slate-50',
+    ]
 }
 
-export default styles;
+export default generateTailWindStrings(styles);
