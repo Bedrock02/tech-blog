@@ -5,13 +5,12 @@ const Card = ({ post }) => {
   const { slug, data: { date, metaDesc, metaTitle, tags } } = post;
   return (
     <div className={cardStyles.container}>
-      <Link href={`blog/${slug}`}>
-        <h1 className={cardStyles.title}>
+      <h1 className={cardStyles.title}>
           {metaTitle}
-        </h1>
-      </Link>
+      </h1>
       <p className={cardStyles.date}>{date}</p>
       <p className={cardStyles.metaData}>{metaDesc}</p>
+      <Link className="text-sky-600" href={`blog/${slug}`}>Read More</Link>
       <ul className={cardStyles.tagContainer}>
         {tags.map((tag: string) => (<li className={cardStyles.tag} key={`li-${tag}`}>{tag}</li>))}
       </ul>

@@ -38,6 +38,7 @@ const styles = {
         'items-stretch',
         'justify-evenly',
         'list-none',
+        'mt-4'
     ],
     tag: [
         'bg-slate-500',
