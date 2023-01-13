@@ -28,6 +28,12 @@ const styles = {
         'text-stone-500',
         'w-3/5',
     ],
+    metaDataItem: [
+        'flex',
+        'flex-row',
+        'items-center',
+        'gap-1',
+    ],
     content: [
         'border-t-2',
         'border-t-stone-500',

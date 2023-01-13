@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import ReactMarkdown from 'react-markdown';
 import blogStyles from './blog.styles';
 import { readTime } from "../../lib/utils";
+import { AiFillCalendar, AiFillClockCircle } from 'react-icons/ai'
 
 export default function Blog({ frontmatter, content}) {
 
@@ -13,8 +14,14 @@ export default function Blog({ frontmatter, content}) {
           <h1 className="text-lg-2xl">{frontmatter.title}</h1>
           <p className={blogStyles.metaDesc}>{frontmatter.metaDesc}</p>
           <div className={blogStyles.metaData}>
-            <span>{frontmatter.date}</span>
-            <span>{`~${readTime(content)} min read`}</span>
+            <div className={blogStyles.metaDataItem}>
+              <AiFillCalendar />
+              <span>{frontmatter.date}</span>
+            </div>
+            <div className={blogStyles.metaDataItem}>
+              <AiFillClockCircle />
+              <span>{`~${readTime(content)} min read`}</span>
+            </div>
           </div>
         </section>
         <section className={blogStyles.content}>
