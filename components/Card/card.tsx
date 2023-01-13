@@ -1,6 +1,7 @@
 import Link from "next/link";
 import cardStyles from "./card.styles";
 import Tags from "../Tags/tags";
+import { AiFillRead } from "react-icons/ai"
 
 const Card = ({ post }) => {
   const { slug, data: { date, metaDesc, title, tags } } = post;
@@ -11,7 +12,12 @@ const Card = ({ post }) => {
       </h1>
       <p className={cardStyles.date}>{date}</p>
       <p className={cardStyles.metaData}>{metaDesc}</p>
-      <Link className="text-sky-600" href={`blog/${slug}`}>Read More</Link>
+      <Link className="text-sky-600" href={`blog/${slug}`}>
+        <div className={cardStyles.readMore}>
+          <AiFillRead />
+          <span>Read More</span>
+        </div>
+      </Link>
       <Tags tags={tags} />
     </div>
   );

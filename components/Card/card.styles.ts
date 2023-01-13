@@ -33,6 +33,12 @@ const styles = {
         'border-t-2',
         'py-3'
     ],
+    readMore: [
+        'flex',
+        'flex-row',
+        'items-center',
+        'gap-1',
+    ]
 }
 
 export default generateTailWindStrings(styles);
