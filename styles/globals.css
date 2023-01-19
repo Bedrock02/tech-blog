@@ -90,7 +90,7 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: rgb(0, 0, 0);
   background-image: url('/images/topography.png');
   background-repeat: repeat;
 }
