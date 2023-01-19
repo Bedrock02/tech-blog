@@ -8,7 +8,7 @@ interface LayoutProps {
 function Layout({ children }: LayoutProps) {
   return (
     <div className="w-full min-h-screen ">
-      <div className="flex flex-row h-16 justify-around align-middle text-stone-100">
+      <div className="flex flex-row h-16 justify-around align-middle">
         <Link className="my-auto text-2xl font-mono" href={'/'}>
           <h1>Tech Notes</h1>
         </Link>
