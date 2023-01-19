@@ -2,7 +2,7 @@ import { generateTailWindStrings } from '../../lib/utils';
 
 const styles = {
     container: [
-        'bg-stone-200',
+        'bg-gray-100',
         'border-2',
         'content-center',
         'drop-shadow-lg',
@@ -29,7 +29,7 @@ const styles = {
         'text-sm'
     ],
     metaData: [
-        'border-black',
+        'border-violet-900',
         'border-t-2',
         'py-3'
     ],

@@ -2,7 +2,7 @@ import { generateTailWindStrings } from "../../lib/utils"
 
 const postStyles = generateTailWindStrings({
     articleContainer: [
-        'bg-stone-100',
+        'bg-gray-100',
         'prose',
         'max-w-full',
         'mx-auto',
@@ -27,6 +27,7 @@ const postStyles = generateTailWindStrings({
         'justify-around',
         'text-stone-500',
         'w-3/5',
+        'text-violet-900',
     ],
     metaDataItem: [
         'flex',

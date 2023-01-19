@@ -11,7 +11,7 @@ const styles = {
         'gap-1'
     ],
     tag: [
-        'bg-slate-500',
+        'bg-violet-900',
         'px-3',
         'rounded-lg',
         'text-slate-50',
