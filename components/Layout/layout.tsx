@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import Header from "../Header/header";
 
 interface LayoutProps {
   children: React.ReactNode
@@ -8,14 +9,7 @@ interface LayoutProps {
 function Layout({ children }: LayoutProps) {
   return (
     <div className="w-full min-h-screen ">
-      <div className="flex flex-row h-16 justify-around align-middle">
-        <Link className="my-auto text-2xl font-mono" href={'/'}>
-          <h1>Tech Notes</h1>
-        </Link>
-        <a href={`https://wepadev.com`} target="_blank" className="my-auto text-2xl font-mono" rel="noreferrer">
-          <h1>WepaDev</h1>
-        </a>
-      </div>
+      <Header />
       <div className="container w-5/6 mx-auto mt-16">
         {children}
       </div>

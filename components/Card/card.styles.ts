@@ -10,7 +10,7 @@ const styles = {
         'flex-col',
         'h-50',
         'lg:w-1/3',
-        'md:full',
+        'md:w-full',
         'md:h-30',
         'mx-1',
         'my-4',
