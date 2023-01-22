@@ -24,6 +24,8 @@ const postStyles = generateTailWindStrings({
     ],
     metaData: [
         'flex',
+        'flex-col',
+        'items-center',
         'justify-around',
         'text-stone-500',
         'w-3/5',
