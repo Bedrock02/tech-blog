@@ -2,10 +2,11 @@ import Card from "../components/Card/card";
 import fs from 'fs'
 import matter from "gray-matter";
 import Head from 'next/head';
+import { PostMeta } from "../types";
 
 interface Post {
   slug: string
-  data: any
+  data: PostMeta
 }
 
 interface HomeProps {
@@ -13,7 +14,7 @@ interface HomeProps {
 }
 
 export default function Home(props: HomeProps) {
-  const { posts } = props
+  const { posts } = props;
   return (
     <>
       <Head>
@@ -49,6 +50,12 @@ export async function getStaticProps(){
       data,
     };
   });
+
+  posts.sort( (postA, postB) => {
+    const { data: { date: dateA } } = postA;
+    const { data: { date: dateB } } = postB;
+    return new Date(dateB).getTime() - new Date(dateA).getTime();
+  })
 
   return {
     props: {
