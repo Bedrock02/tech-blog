@@ -9,7 +9,15 @@ const styles = {
         'justify-around',
         'text-stone-300',
     ],
-    link: [ 'my-auto', 'font-mono', 'text-2xl', ],
+    link: [
+        'flex',
+        'flex-row',
+        'font-mono',
+        'gap-1',
+        'items-center',
+        'my-auto',
+        'text-2xl',
+    ],
 }
 
 export default generateTailWindStrings(styles);
