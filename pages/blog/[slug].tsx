@@ -1,13 +1,21 @@
 import fs from "fs";
 import matter from "gray-matter";
 import Post from "../../components/Post/Post";
+import Head from "next/head";
 
 
 // @ts-ignore
 export default function Blog({ frontmatter, content}) {
   const { title, metaDesc, date } = frontmatter;
   return (
-    <Post title={title} metaDesc={metaDesc} date={date} content={content} />
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <article>
+        <Post title={title} metaDesc={metaDesc} date={date} content={content} />
+      </article>
+    </>
   );
 }
 
