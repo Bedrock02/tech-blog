@@ -1,4 +1,4 @@
-import { generateTailWindStrings } from "../../lib/utils"
+import { generateTailWindStrings } from "../../lib/utils";
 
 const postStyles = generateTailWindStrings({
     articleContainer: [
@@ -45,4 +45,4 @@ const postStyles = generateTailWindStrings({
 
 });
 
-export default postStyles
+export default postStyles;

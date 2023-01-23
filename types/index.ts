@@ -25,4 +25,4 @@ export type {
     PostMeta,
     PostInfo,
     PageData
-}
+};

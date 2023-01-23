@@ -18,6 +18,6 @@ const styles = {
         'my-auto',
         'text-2xl',
     ],
-}
+};
 
 export default generateTailWindStrings(styles);

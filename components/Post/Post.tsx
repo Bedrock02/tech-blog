@@ -33,7 +33,7 @@ const Post = ({ title, metaDesc, date, content }: Props) => {
           </section>
         </div>
       </div>
-    )
+    );
 };
 
 export default Post;

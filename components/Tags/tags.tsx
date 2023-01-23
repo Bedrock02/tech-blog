@@ -9,6 +9,6 @@ const Tags = ({ tags }: Props) => (
             <li className={tagsStyles.tag} key={`li-${tag}`}>{tag}</li>
         ))}
     </ul>
-)
+);
 
 export default Tags;

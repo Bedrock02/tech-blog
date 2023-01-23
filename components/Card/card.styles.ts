@@ -39,6 +39,6 @@ const styles = {
         'items-center',
         'gap-1',
     ]
-}
+};
 
 export default generateTailWindStrings(styles);

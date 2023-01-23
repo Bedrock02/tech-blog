@@ -26,6 +26,6 @@ const Card = ({ post }: CardProps) => {
       <Tags tags={tags} />
     </div>
   );
-}
+};
 
 export default Card;

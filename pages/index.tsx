@@ -1,5 +1,5 @@
 import Card from "../components/Card/card";
-import fs from 'fs'
+import fs from 'fs';
 import matter from "gray-matter";
 import Head from 'next/head';
 import { PostMeta } from "../types";
@@ -44,7 +44,7 @@ export async function getStaticProps(){
     const filecontent = fs.readFileSync(`posts/${file}`, "utf-8");
     const parsedContent = matter(filecontent);
     //The parsed content contains data and content we only need the data which is the frontmatter
-    const {data} = parsedContent
+    const {data} = parsedContent;
     return {
       slug,
       data,
@@ -55,11 +55,11 @@ export async function getStaticProps(){
     const { data: { date: dateA } } = postA;
     const { data: { date: dateB } } = postB;
     return new Date(dateB).getTime() - new Date(dateA).getTime();
-  })
+  });
 
   return {
     props: {
       posts
     }
-  }
+  };
 }

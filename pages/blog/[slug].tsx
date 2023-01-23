@@ -33,7 +33,7 @@ export async function getStaticPaths() {
   return {
     paths,
     fallback:false
-  }
+  };
 }
 
 interface GetStaticProps {
