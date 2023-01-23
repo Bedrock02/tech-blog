@@ -11,7 +11,7 @@ function Layout({ children }: LayoutProps) {
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/images/favicon.ico" />
       </Head>
       <div className="w-full min-h-screen ">
         <Header />
