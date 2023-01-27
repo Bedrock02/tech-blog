@@ -1,6 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
-import Post from "../../components/Post/Post";
+import Post from "components/Post/Post";
 import Head from "next/head";
 
 

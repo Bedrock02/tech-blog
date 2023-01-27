@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import Header from "../Header/header";
+import Header from "components/Header/header";
 import Head from "next/head";
 
 interface LayoutProps {

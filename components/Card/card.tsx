@@ -1,8 +1,8 @@
 import Link from "next/link";
 import cardStyles from "./card.styles";
-import Tags from "../Tags/tags";
+import Tags from "components/Tags/tags";
 import { AiFillRead } from "react-icons/ai";
-import { Post } from '../../types';
+import { Post } from 'types';
 
 interface CardProps {
   post: Post

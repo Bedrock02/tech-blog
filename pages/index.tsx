@@ -1,8 +1,8 @@
-import Card from "../components/Card/card";
+import Card from "components/Card/card";
 import fs from 'fs';
 import matter from "gray-matter";
 import Head from 'next/head';
-import { PostMeta } from "../types";
+import { PostMeta } from "types";
 
 interface Post {
   slug: string

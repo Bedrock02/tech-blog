@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown';
-import { readTime } from '../../lib/utils';
+import { readTime } from 'lib/utils';
 import postStyles from './post.styles';
 import { AiFillClockCircle, AiFillCalendar } from 'react-icons/ai';
 

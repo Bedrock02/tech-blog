@@ -1,4 +1,4 @@
-import { generateTailWindStrings } from "../../lib/utils";
+import { generateTailWindStrings } from "lib/utils";
 const styles = {
     container: [
         'align-middle',
