@@ -1,6 +1,5 @@
-
-import Link from "next/link";
 import Header from "components/Header/header";
+import Footer from "components/Footer/footer";
 import Head from "next/head";
 
 interface LayoutProps {
@@ -13,11 +12,12 @@ function Layout({ children }: LayoutProps) {
       <Head>
         <link rel="shortcut icon" href="/images/favicon.ico" />
       </Head>
-      <div className="w-full min-h-screen ">
+      <div className="w-full min-h-screen">
         <Header />
         <div className="container w-5/6 mx-auto mt-16">
           {children}
         </div>
+        <Footer />
       </div>
     </>
   );
