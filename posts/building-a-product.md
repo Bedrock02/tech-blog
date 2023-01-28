@@ -45,6 +45,7 @@ This will allow you to tailor your product to the needs and preferences of your 
 ## Must-Haves vs Nice-To-Haves
 Be intentional and realistic with what you want to build. Make a list of must-haves and nice-to-haves. This will allow you to prioritize features and help define what your initial release will look like. Items that do not make it to the initial release can be prioritized for future releases. Building a product takes time and resources. With this strategy, you can lay out which features are of priority and build your focus and time around those items. 
 
+### Example:
 #### Nice-To-Have
 - 3rd party Integrations
 - Chat capabilities
