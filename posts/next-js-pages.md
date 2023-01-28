@@ -39,7 +39,7 @@ export default Home
 ## Build Optimization Failed
 After moving all component styles to their own file and testing locally, I decided to push my code to production. I was surprised to find the following error.
 
-![Build Optimization Error](../public/images/next-error-no-component.png)
+![Build Optimization Error](/images/next-error-no-component.png)
 
 Next.Js did not like the fact that I had a `.ts` file not returning a React Component. The built-in [routing](https://nextjs.org/docs/routing/introduction) mechanism expects that every file under `/pages` should be exporting a react component.
 
