@@ -7,11 +7,11 @@ tags:
   - javascript
 ---
 
-My Tech Notes blog is built using Next.js and tailwindcss. While building out my blog pages, I noticed the list of tailwind classes grew to be lengthy. I did what any other developer would do, refactor and make the component leaner. What I learned was that Next.Js has opinions on where you put your code in order to better optimize the build.
+My Tech Notes blog is built using Next.js and Tailwindcss. While building out my blog pages, I noticed the list of tailwind classes grew exponentially. I did what any other developer would do, refactor and make the component leaner. What I learned was that Next.Js has opinions on where you put your code to better optimize the build.
 
 
 ## Separation of Concerns
-Personally I don't want components and styles to live in the same file. I prefer storing style objects in a separate file.
+I don't want components and styles to live in the same file. I prefer storing style objects in a separate file.
 
 #####Example:
 ```bash
@@ -20,7 +20,7 @@ Personally I don't want components and styles to live in the same file. I prefer
     - index.styles.ts
 ```
 
-By separating the two files I can easily find styles for a specific component. We can them import the styles object and apply the classes to html elements.
+By separating the two files I can easily find styles for a specific component. We can import the styles object and apply the classes to HTML elements.
 
 ```javascript
 import postStyles from './post.styles'
