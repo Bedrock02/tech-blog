@@ -28,9 +28,9 @@ const Post = ({ title, metaDesc, date, content }: Props) => {
               </div>
             </div>
           </section>
-          <section className={content}>
+          <article className="all-initial">
             <ReactMarkdown>{content}</ReactMarkdown>
-          </section>
+          </article>
         </div>
       </div>
     );

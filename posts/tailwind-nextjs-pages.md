@@ -18,7 +18,6 @@ const Home = () => {
     return (
         <div className=" bg-stone-200 border-2 content-center drop-shadow-lg flex flex-col h-50"></div>
     )
-
 }
 ```
 
