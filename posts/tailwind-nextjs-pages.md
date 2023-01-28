@@ -1,5 +1,5 @@
 ---
-title: 'Build Optimization: Let Pages Be Pages'
+title: 'TailwindCSS & Next.Js Build Optimization'
 metaDesc: 'Next.Js will make sure that you have valid pages and that components under `/page` return an html structure or component.'
 date: 'Jan 27, 2023'
 tags:
