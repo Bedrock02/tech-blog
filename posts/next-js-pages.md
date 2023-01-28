@@ -111,8 +111,7 @@ To get a successful build and keep my styles in a separate file I had to remove 
 
 ```
 
-### New Component & New Directory
-If we go back to `index.tsx`, we can make improvements that will keep both the component and the styles in the same directory without triggering build time errors. We would need to clean up the `page` by importing a component found outside of the `/page` directory.
+If we go back to `index.tsx`, we can make improvements that will keep both the component and the styles in the same directory without triggering build-time errors. We would need to clean up the `page` by importing a component found outside of the `/page` directory.
 
 ##### Approach 2:
 ```bash
@@ -144,8 +143,9 @@ const HomeSection = () => {
         </div>
     )
 }
-export default CustomSection
+export default HomeSection
 ```
 
 ## Takeaways
-Next.Js performs optimizations as long as you follow what they ask of you. Any page within the pages directory expects a React Component to render.
+- Tailwind is a great tool to use for styling HTML elements, but can easily grow out of control if you end up using a lot of properties.
+- Next.Js performs built-in optimizations as long as you follow the documentation. Any page within the pages directory expects a React Component to render.
