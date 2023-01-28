@@ -20,7 +20,7 @@ export default function Home(props: HomeProps) {
       <Head>
         <link rel="payload" href="/images/pexels-stephan-seeber-1054218.jpg" as="image"></link>
       </Head>
-      <div className="flex flex-row flex-wrap justify-evenly">
+      <div className="flex flex-row flex-wrap justify-start gap-14">
         {posts.map((post,index)=>(
           <Card key={index} post={post} />
         ))}
