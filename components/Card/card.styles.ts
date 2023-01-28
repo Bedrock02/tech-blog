@@ -9,7 +9,7 @@ const styles = {
         'flex',
         'flex-col',
         'h-50',
-        'lg:w-1/3',
+        'lg:w-2/5',
         'md:w-full',
         'md:h-30',
         'mx-1',
