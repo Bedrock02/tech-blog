@@ -79,8 +79,8 @@ I don't want components and styles to live in the same file. The function `gener
 By separating the two files I can easily find styles for a specific component. We can import the styles object and apply the classes to HTML elements.
 
 ```javascript
-import homeStyles from './post.styles'
-
+// index.tsx
+import homeStyles from './index.styles'
 const Home = () => {
     return (
         <div className={homeStyles.container}>
@@ -125,7 +125,7 @@ If we go back to `index.tsx`, we can make improvements that will keep both the c
 
 ```javascript
 // index.tsx
-import HomeSection from 'components/customSection'
+import HomeSection from 'components/HomeSection/homeSection'
 
 const Home = () => <HomeSection />
 
@@ -134,7 +134,7 @@ export default Home
 
 ```javascript
 // homeSection.tsx
-import homeStyles from './index.styles'
+import homeStyles from './home.styles'
 
 const HomeSection = () => {
     return (
