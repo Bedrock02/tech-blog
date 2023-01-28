@@ -7,11 +7,67 @@ tags:
   - javascript
 ---
 
-My Tech Notes blog is built using Next.js and Tailwindcss. While building out my blog pages, I noticed the list of tailwind classes grew exponentially. I did what any other developer would do, refactor and make the component leaner. What I learned was that Next.Js has opinions on where you put your code to better optimize the build.
+This blog is built using Next.js and Tailwind CSS. During the process of building the site, I started to accumulate a large list of tailwind properties on my components. To keep the code legible and clean, I decided to refactor the way I was styling my components. What I learned was that Next.Js has opinions on where you put your code to better optimize the build.
 
+## The Problem
+Using Tailwind CSS started to see how easy it was to accumulate styling properties. The more properties that were added, the longer that line of code became. Below is an example of what I had before the refactor.
+
+```javascript
+// index.tsx
+const Home = () => {
+    return (
+        <div className=" bg-stone-200 border-2 content-center drop-shadow-lg flex flex-col h-50"></div>
+    )
+
+}
+```
+
+## The Solution
+For the refactor I wanted to achieve the following:
+- Group tailwind properties per element
+- Easy way to maintain the collection of styles
+- Provide a cleaner way to apply those styles
+
+I mapped the array of properties to a specific key and made sure to convert the array of properties into a string before exporting the styles. Using that mapping of styles, I could then easily look up the style I wanted to apply for that particular element.
+
+```typescript
+const styles = {
+    container: [
+        'bg-stone-200',
+        'border-2',
+        'content-center',
+        'drop-shadow-lg',
+        'flex',
+        'flex-col',
+        'h-50',
+    ]
+}
+
+type tailWindCollections = {[key: string]: string[]}
+type tailWindStrings = {[key: string]: string}
+
+/**
+ * Converts the values (arrays) of the map into a string
+ * */
+const generateTailWindStrings = (styles: tailWindCollections): tailWindStrings => {
+    return Object.entries(styles).reduce( (map: tailWindStrings, entry) => {
+        const [key, value] = entry;
+        map[key] = value.join(' ');
+        return map;
+    }, {});
+};
+
+const homeStyles = generateTailWindStrings(styles)
+
+const Home = () => {
+    return (
+        <div className={homeStyles.container}></div>
+    )
+}
+```
 
 ## Separation of Concerns
-I don't want components and styles to live in the same file. I prefer storing style objects in a separate file.
+I don't want components and styles to live in the same file. The function `generateTailWindStrings` is put into a lib folder and is used as a utility function, the styles map will live in a `<component>.styles.ts` file and the component will stay as the `<component>.tsx` file.
 
 ##### Example:
 ```bash
@@ -23,13 +79,13 @@ I don't want components and styles to live in the same file. I prefer storing st
 By separating the two files I can easily find styles for a specific component. We can import the styles object and apply the classes to HTML elements.
 
 ```javascript
-import postStyles from './post.styles'
+import homeStyles from './post.styles'
 
 const Home = () => {
     return (
-        <section className={postStyles.container}>
+        <div className={homeStyles.container}>
             <p>Some Text here</p>
-        </section>
+        </div>
     )
 }
 
@@ -37,14 +93,14 @@ export default Home
 ```
 
 ## Build Optimization Failed
-After moving all component styles to their own file and testing locally, I decided to push my code to production. I was surprised to find the following error.
+After moving all component styles to their file and testing locally, I decided to push my code to production. I was surprised to find the following error.
 
 ![Build Optimization Error](/images/next-error-no-component.png)
 
 Next.Js did not like the fact that I had a `.ts` file not returning a React Component. The built-in [routing](https://nextjs.org/docs/routing/introduction) mechanism expects that every file under `/pages` should be exporting a react component.
 
-## The Solution
-To get a successful build and keep my styles in a separate file I had to remove the styles from `/pages`. One approach could be putting the styles file in a folder called `styles` or `components`. However with this approach, the file is not located next to the component that requires those styles.
+## The HotFix
+To get a successful build and keep my styles in a separate file I had to remove the styles from `/pages`. One approach could be putting the styles file in a folder called `styles` or `components`. However, with this approach, the file is not located next to the component that requires those styles.
 
 ##### Approach 1:
 ```bash
@@ -64,28 +120,28 @@ If we go back to `index.tsx`, we can make improvements that will keep both the c
 - pages
     - index.tsx
 - components
-    - customSection.tsx
-    - customSection.styles.ts
+    - homeSection.tsx
+    - homeSection.styles.ts
 ```
 
 ```javascript
 // index.tsx
-import CustomSection from 'components/customSection'
+import HomeSection from 'components/customSection'
 
-const Home = () => <CustomSection />
+const Home = () => <HomeSection />
 
 export default Home
 ```
 
 ```javascript
-// customSection.tsx
-import postStyles from './post.styles'
+// homeSection.tsx
+import homeStyles from './index.styles'
 
-const CustomSection = () => {
+const HomeSection = () => {
     return (
-        <section className={postStyles.container}>
+        <div className={homeStyles.container}>
             <p>Some Text here</p>
-        </section>
+        </div>
     )
 }
 export default CustomSection
