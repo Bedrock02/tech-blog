@@ -16,6 +16,7 @@ const postStyles = generateTailWindStrings({
         'items-center',
         'justify-evenly',
         'py-10',
+        'text-center',
     ],
     metaDesc: [
         'w-3/5',

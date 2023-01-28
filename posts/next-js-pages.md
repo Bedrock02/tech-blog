@@ -13,7 +13,7 @@ My Tech Notes blog is built using Next.js and Tailwindcss. While building out my
 ## Separation of Concerns
 I don't want components and styles to live in the same file. I prefer storing style objects in a separate file.
 
-#####Example:
+##### Example:
 ```bash
 - pages
     - index.tsx
