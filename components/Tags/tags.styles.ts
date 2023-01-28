@@ -4,6 +4,7 @@ const styles = {
     tagContainer: [
         'flex',
         'flex-row',
+        'flex-wrap',
         'items-stretch',
         'justify-start',
         'list-none',
