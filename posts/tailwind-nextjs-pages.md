@@ -101,7 +101,7 @@ Next.Js did not like the fact that I had a `.ts` file not returning a React Comp
 ## The HotFix
 To get a successful build and keep my styles in a separate file I had to remove the styles from `/pages`. One approach could be putting the styles file in a folder called `styles` or `components`. However, with this approach, the file is not located next to the component that requires those styles.
 
-##### Approach 1:
+#### Approach 1:
 ```bash
 - pages
     - index.tsx
@@ -112,7 +112,7 @@ To get a successful build and keep my styles in a separate file I had to remove 
 
 If we go back to `index.tsx`, we can make improvements that will keep both the component and the styles in the same directory without triggering build-time errors. We would need to clean up the `page` by importing a component found outside of the `/page` directory.
 
-##### Approach 2:
+#### Approach 2:
 For this approach, we move the majority of what we have in `index.tsx` over to a separate component. That component then lives in the `components` directory. Since this new component is away from 'pages' we can have a styles file next to the component that will consume it.
 
 ```bash
