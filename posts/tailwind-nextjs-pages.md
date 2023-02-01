@@ -5,6 +5,7 @@ date: 'Jan 27, 2023'
 tags:
   - nextjs
   - javascript
+  - tailwindcss
 ---
 
 This blog is built using Next.js and Tailwind CSS. During the process of building the site, I started to accumulate a large list of tailwind properties on my components. To keep the code legible and clean, I decided to refactor the way I was styling my components. What I learned was that Next.Js has opinions on where you put your code to better optimize the build.

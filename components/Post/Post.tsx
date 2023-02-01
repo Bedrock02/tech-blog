@@ -3,6 +3,7 @@ import { readTime } from 'lib/utils';
 import postStyles from './post.styles';
 import { AiFillClockCircle, AiFillCalendar } from 'react-icons/ai';
 import rehypeRaw from 'rehype-raw';
+import CodeBlock from 'components/CodeBlock/codeBlock';
 
 interface Props {
     title: string,
