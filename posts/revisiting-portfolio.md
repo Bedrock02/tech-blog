@@ -8,7 +8,7 @@ tags:
   - javascript
 ---
 
-The year 2022 was the season for layoffs. Tech companies adjusted their spending, changed their priorities, reduce their org count by at least 5%. In December 2022, I was laid off and I knew it was time to dust off my portfolio and make some improvements. Below are some of the issues I came across and my personal takeaways.
+The year 2022 was the season for layoffs. Tech companies adjusted their spending, changed their priorities, and reduce their org count by at least 5%. In December 2022, I was laid off and I knew it was time to dust off my portfolio and make some improvements. Below are some of the issues I came across and my personal takeaways.
 
 
 ## Stale Tech
@@ -16,7 +16,7 @@ The last time I worked on my portfolio was back in June of 2021. While it may no
 
 You know your code is in a bad state when [dependabot](https://github.com/dependabot) opens a list of package updates. My portfolio is written using [Gatsby](https://www.gatsbyjs.com/). The code was sitting on version 2 of Gatsby and since then it has had 3 major version bumps.
 
-I now use [Typescript](https://www.typescriptlang.org/), and my portfolio is just straight javascript. For this project, react files had an file extension of `.js`. Today, I use `.jsx` or `.tsx` to describe react components and `.js` or `.ts` for javascript modules.
+I now use [Typescript](https://www.typescriptlang.org/), and my portfolio is just straight javascript. For this project, react files had a file extension of `.js`. Today, I use `.jsx` or `.tsx` to describe react components and `.js` or `.ts` for javascript modules.
 
 Lastly, my code has improved in quality. I can better identify how to reduce the amount of code I need to write, how to better structure files, and how to best approach problems.
 
@@ -53,10 +53,10 @@ See the migration changes here:
 ## Tools Are Your Friends
 When I started this project I didn't add any eslint tooling. So this was the perfect time to do so. I recommend following some articles on how you can [add eslint and other tools like prettier](https://dev.to/knowankit/setup-eslint-and-prettier-in-react-app-357b) to your project. If you are not coding with a linter you are doing a disservice to yourself.
 
-Since I wasn't using Typescript I reverted to using `PropTypes` as a way to describe what my component should be expecting as input and the type of that input. Typing my props was the only thing I was able to do. In the future I would like to add typing and support Typescript `{ts, tsx}` files.
+Since I wasn't using Typescript I reverted to using `PropTypes` as a way to describe what my component should be expecting as input and the type of that input. Typing my props was the only thing I was able to do. In the future, I would like to add typing and support Typescript `{ts, tsx}` files.
 
 ## UI Limitations
-As I added content to my portfolio, I wanted to add UI components like [chips](https://www.infragistics.com/products/indigo-design/help/components/chips). I quickly realized that semantic-ui hasn't been making much improvements or providing new components. Anything that didn't exist as a component I would have to build myself (not trying to do that).
+As I added content to my portfolio, I wanted to add UI components like [chips](https://www.infragistics.com/products/indigo-design/help/components/chips). I quickly realized that semantic-ui hasn't been making improvements or providing new components. Anything that didn't exist as a component I would have to build myself (not trying to do that).
 
 
 ## Takeaways
