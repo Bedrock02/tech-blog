@@ -128,7 +128,7 @@ const Counter = () => {
 3. In our component, `getCounter` acts as a getter function that retrieves the value of `counter`.
 
 ##### Why It Is Wrong: Old References
-When the state of a react component updates, it gets re-rendered. During that re-rendering process functions are re-initialized. Therefore, when the state gets updated, `getCounter` is now an entirely new function.
+When a react component gets updated, it will re-render. During that re-rendering process, functions are re-initialized. Therefore, `getCounter` becomes a new function when `counter` changes.
 
 Hence, the function that is passed into `countDown` is never updated and never provides the current true value of `counter`.
 
@@ -176,7 +176,7 @@ See implementation on: [CodePen](https://codepen.io/bedrock02/pen/RwBXwgE)
 ```typescript
 setInterval(decrementCounter, 1000)
 ```
-While I was recursively calling `countDown` to trigger another setTimeout call, I could have used [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval). `setInterval` takes in the same parameters as `setTimeout`; a callback function, and a number representing milliseconds. This will invoke the callback after every 1000ms. This makes our code easier to understand as it then becomes a one liner.
+While I was recursively calling `countDown` to trigger another setTimeout call, I could have used [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval). `setInterval` takes in the same parameters as `setTimeout`; a callback function, and a number representing milliseconds. This will invoke the callback after every 1000ms. This makes our code easier to understand as it then becomes a one-liner.
 
 #### setCounter Callback
 ```typescript
