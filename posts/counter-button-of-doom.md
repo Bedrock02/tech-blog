@@ -16,7 +16,7 @@ Everyone has their days, and during this one technical interview, my brain was s
 
 ## Starting With A Win
 ![inhale the confidence gif](https://media.giphy.com/media/E72zBwfDfxRwLu5vbB/giphy.gif)
-Initially, this seemed straightforward. I started by creating a component that updates a state variable upon click. This I can do in my sleep no problem (only because every tutorial on the planet uses this example).
+Initially, this seemed straightforward. I started by creating a component that updates a state variable upon click. This I can do in my sleep, no problem.
 
 ```typescript
 const Counter = () => {
@@ -42,7 +42,7 @@ const Counter = () => {
 ## Now For The Hard Part
 > For every second that passes the counter will decrement by 1.
 
-To approach this second requirement I thought a function outside of my component can handle this logic. The reason is I wanted to use setTimeout to trigger a delayed state change and from past experiences when using setTimeout you need to keep in mind your scope and time of execution. To understand this better read this [post](https://medium.com/@axionoso/watch-out-when-using-settimeout-in-for-loop-js-75a047e27a5f)
+To approach this second requirement, I decided to put a function outside of my component. This function would determine how to update the state. The other reason, I wanted to use setTimeout and trigger a delayed state change. From past experiences when using setTimeout, you need to keep in mind the scope and time of execution. To understand this better read this [post](https://medium.com/@axionoso/watch-out-when-using-settimeout-in-for-loop-js-75a047e27a5f)
 
 
 ```typescript
@@ -71,15 +71,15 @@ const Counter = () => {
 }
 ```
 ##### What is happening here:
-1. Countdown function takes in a "setter" function and a value that will represent the current value.
-2. Countdown function triggers a setTimeout for 1000ms. After 1000ms, the callback passed into the setTimeout will be pushed onto the execution stack of the [event loop](https://andreassujono.medium.com/tricky-event-loop-macrotask-and-microtask-question-506956b0a26d).
-3. The function inside the setTimeout will call setCounter with a value of `value - 1` if the current value is greater than 0.
-4. Countdown then gets called again with the same setCounter and value.
-5. To tie it all together I kicked it off in a useEffect within the Counter component
+1. `countDown` takes in a "setter" function and a value that will represent the current value.
+2. `countDown` triggers a setTimeout for 1000ms. After 1000ms, the callback passed in will be pushed onto the execution stack of the [event loop](https://andreassujono.medium.com/tricky-event-loop-macrotask-and-microtask-question-506956b0a26d).
+3. The callback will call `setCounter` with a value of `value - 1` if the current value is greater than 0.
+4. `countDown` then gets called again with the same `setCounter` and value for `counter`.
+5. To tie it all together I kicked it off in a `useEffect` within the Counter component
 
 
 ##### Why It Is Wrong: Initial Render
-On the initial render we are calling `countDown` and passing in `setCounter` and the current value for `counter` which on mount initially is 0.
+On initial render, we are calling `countDown` and passing in `setCounter`. On mount, the current value for `counter` is 0.
 
 ```typescript
 useEffect(() => {
@@ -123,9 +123,9 @@ const Counter = () => {
 ```
 
 ##### What is happening here
-1. We updated the `countDown` method to take in another function called `getCounter`, instead of the `counter` which was of type `number`.
-2. We used `getCounter` to fetch the current value of `counter`.
-3. In our component `getCounter` acts as a getter function that retrieves the value of `counter`.
+1. `countDown` now takes in another function called `getCounter`, instead of the `counter` which was of type `number`.
+2. `getCounter` is now used to fetch the current value of `counter`.
+3. In our component, `getCounter` acts as a getter function that retrieves the value of `counter`.
 
 ##### Why It Is Wrong: Old References
 When the state of a react component updates, it gets re-rendered. During that re-rendering process functions are re-initialized. Therefore, when the state gets updated, `getCounter` is now an entirely new function.
