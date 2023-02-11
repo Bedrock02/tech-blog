@@ -170,6 +170,29 @@ const attachNode = document.getElementById('main');
 ReactDOM.render(<Counter />, attachNode)
 ```
 
-## SetInterval
+See implementation on: [CodePen](https://codepen.io/bedrock02/pen/RwBXwgE)
 
-## SetCounter Callback
+#### SetInterval
+```typescript
+setInterval(decrementCounter, 1000)
+```
+While I was recursively calling `countDown` to trigger another setTimeout call, I could have used [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval). `setInterval` takes in the same parameters as `setTimeout`; a callback function, and a number representing milliseconds. This will invoke the callback after every 1000ms. This makes our code easier to understand as it then becomes a one liner.
+
+#### setCounter Callback
+```typescript
+setCounter((currentValue) => {
+        return currentValue > 0 ? currentValue - 1 : currentValue
+      })
+```
+The `setState` function returned from the `useState` callback can be used in two different ways.
+
+1. Passing in a value
+2. Passing in a function that determines the next state based on the previous state.
+
+Previously, we were calling the `setCounter` function and passing a value. If we use the callback, we will always have the previous state without having to reference a value or create a getter function. All we do is move the logic of when to decrement within the `setCounter` callback and ensure that the setInterval is given a function that will invoke the new `setCounter`
+
+
+## Takeaways
+- `setInterval` is best for code you want to repeat after a certain number of milliseconds.
+- `setState` can take in a value or a callback that returns a calculated value
+- Re-renders will instantiate variables and functions. Passing these as references can be risky
