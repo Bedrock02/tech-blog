@@ -42,7 +42,7 @@ const Counter = () => {
 ## Now For The Hard Part
 > For every second that passes the counter will decrement by 1.
 
-To approach this second requirement, I decided to put a function outside of my component. This function would determine how to update the state. The other reason, I wanted to use setTimeout and trigger a delayed state change. From past experiences when using setTimeout, you need to keep in mind the scope and time of execution. To understand this better read this [post](https://medium.com/@axionoso/watch-out-when-using-settimeout-in-for-loop-js-75a047e27a5f)
+For the second requirement, I decided to put a function outside of my component. This function would determine how to update the state. The other reason, I wanted to use setTimeout and trigger a delayed state change. From past experiences when using setTimeout, you need to keep in mind the scope and time of execution. To understand this better read this [post](https://medium.com/@axionoso/watch-out-when-using-settimeout-in-for-loop-js-75a047e27a5f)
 
 
 ```typescript
@@ -75,11 +75,11 @@ const Counter = () => {
 2. `countDown` triggers a setTimeout for 1000ms. After 1000ms, the callback passed in will be pushed onto the execution stack of the [event loop](https://andreassujono.medium.com/tricky-event-loop-macrotask-and-microtask-question-506956b0a26d).
 3. The callback will call `setCounter` with a value of `value - 1` if the current value is greater than 0.
 4. `countDown` then gets called again with the same `setCounter` and value for `counter`.
-5. To tie it all together I kicked it off in a `useEffect` within the Counter component
+5. To tie it all together I kicked it off in a `useEffect` within the Counter component.
 
 
 ##### Why It Is Wrong: Initial Render
-On initial render, we are calling `countDown` and passing in `setCounter`. On mount, the current value for `counter` is 0.
+On the initial render, we are calling `countDown` and passing in `setCounter`. On mount, the current value for `counter` is 0.
 
 ```typescript
 useEffect(() => {
@@ -123,7 +123,7 @@ const Counter = () => {
 ```
 
 ##### What is happening here
-1. `countDown` now takes in another function called `getCounter`, instead of the `counter` which was of type `number`.
+1. `countDown` now takes in another function called `getCounter`, instead of the argument `counter` which was of type `number`.
 2. `getCounter` is now used to fetch the current value of `counter`.
 3. In our component, `getCounter` acts as a getter function that retrieves the value of `counter`.
 
@@ -165,9 +165,6 @@ const Counter = () => {
     </button>
   );
 }
-
-const attachNode = document.getElementById('main'); 
-ReactDOM.render(<Counter />, attachNode)
 ```
 
 See implementation on: [CodePen](https://codepen.io/bedrock02/pen/RwBXwgE)
@@ -176,20 +173,20 @@ See implementation on: [CodePen](https://codepen.io/bedrock02/pen/RwBXwgE)
 ```typescript
 setInterval(decrementCounter, 1000)
 ```
-While I was recursively calling `countDown` to trigger another setTimeout call, I could have used [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval). `setInterval` takes in the same parameters as `setTimeout`; a callback function, and a number representing milliseconds. This will invoke the callback after every 1000ms. This makes our code easier to understand as it then becomes a one-liner.
+While I was recursively calling `countDown` to trigger another `setTimeout` call, I could have used [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval). `setInterval` takes in the same parameters as `setTimeout`; a callback function, and a number representing milliseconds. This will invoke the callback after every 1000ms. This makes our code easier to understand as it then becomes a one-liner.
 
 #### setCounter Callback
 ```typescript
 setCounter((currentValue) => {
-        return currentValue > 0 ? currentValue - 1 : currentValue
-      })
+  return currentValue > 0 ? currentValue - 1 : currentValue
+})
 ```
 The `setState` function returned from the `useState` callback can be used in two different ways.
 
 1. Passing in a value
 2. Passing in a function that determines the next state based on the previous state.
 
-Previously, we were calling the `setCounter` function and passing a value. If we use the callback, we will always have the previous state without having to reference a value or create a getter function. All we do is move the logic of when to decrement within the `setCounter` callback and ensure that the setInterval is given a function that will invoke the new `setCounter`
+Previously, we were calling the `setCounter` function and passing a value. If we use the callback, we will always have the previous state without having to reference a value or create a getter function. All we do is move the logic of when to decrement within the `setCounter` callback and ensure that the `setInterval` is given a function that will invoke `setCounter`.
 
 
 ## Takeaways
