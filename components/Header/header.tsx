@@ -6,10 +6,10 @@ const Header = () => (
     <header className={headerStyles.container}>
       <Link className={headerStyles.link} href={'/'}>
         <AiFillFileText />
-        <h3>Tech Notes</h3>
+        <h4>Tech Notes</h4>
       </Link>
       <a href={`https://wepadev.com`} target="_blank" className={headerStyles.link} rel="noreferrer">
-        <h3>WepaDev</h3>
+        <h4>WepaDev</h4>
       </a>
     </header>
 );
