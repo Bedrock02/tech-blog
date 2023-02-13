@@ -14,7 +14,7 @@ function Layout({ children }: LayoutProps) {
       </Head>
       <div className="w-full min-h-screen">
         <Header />
-        <div className="container w-5/6 mx-auto mt-16">
+        <div className="container w-5/6 max-sm:mx-0 max-sm:w-full mx-auto mt-16">
           {children}
         </div>
         <Footer />
