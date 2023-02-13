@@ -1,7 +1,7 @@
 ---
 title: 'Counter Button Of Doom'
-metaDesc: 'I stumbled during a technical interview. "Create a Counter that increments on click and decrements every second.'
-date: 'Feb 10, 2023'
+metaDesc: 'I stumbled during a technical interview. "Using React, create a counter that increments on click and decrements every second."'
+date: 'Feb 13, 2023'
 tags:
   - Interview
   - React
