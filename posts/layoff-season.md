@@ -23,7 +23,7 @@ Get an understanding of how your company measures success. If you understand the
 If a company wants to sunset a project without ringing any bells, then you may see a slowdown in innovation and improvements. I've been on a team placed on hold and focused on building tests on existing components. This was a means to keep us "busy" while decisions around the project were made.
 
 
-## Be Prepared
+## Preparation & Prevention
 
 ### Pay attention to layoff trends
 After the pandemic we saw larger companies launch waves of layoffs. This was a way to handle unsustainable growth, and smaller companies followed this decision. Hence it became a trend. Keep close eye on what is going on in your professional network. LinkedIn and Reddit are good sources to get a sense of what is happening in tech.
