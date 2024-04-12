@@ -134,7 +134,7 @@ By mocking these imported tools, I can concentrate on how my endpoints validate 
 
 After reviewing how other developers in Go handle mocking modules, it appeared that I could either create a wrapper function that accepts the library as an argument or inject the libraries directly into the Controller. I deemed a wrapper function to be excessive, so I opted for Dependency Injection.
 
-> Dependency injection is a programming technique where an object or function is provided with the objects or functions it needs, rather than creating them internally.[Wiki](https://en.wikipedia.org/wiki/Dependency_injection)
+> Dependency injection is a programming technique where an object or function is provided with the objects or functions it needs, rather than creating them internally. [Wiki](https://en.wikipedia.org/wiki/Dependency_injection)
 
 ## Injection at Creation
 ```go
