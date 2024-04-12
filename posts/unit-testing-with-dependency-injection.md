@@ -124,7 +124,7 @@ func (h *ProductRESTController) PostProduct(c *gin.Context) {
 This endpoint employed a function named FetchS3Object, which internally created an S3 client and retrieved data. Subsequently, we processed the data and stored a portion of it in a Dynamo database. The remaining code pertaining to this functionality primarily focuses on validating the incoming body and ensuring the integrity of the data fetched from S3.
 
 
-### Dependency Inejction
+### Dependency Injection
 So when unit testing these endpoints I don't want to test the other imported functions we are using. I wanted to mock out the following.
 
 1. DynamoDB Client
