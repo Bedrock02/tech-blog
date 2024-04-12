@@ -33,23 +33,43 @@ Working with Go put me in unfamiliar territory, and it didn't appear there was a
 
 ### The Endpoint
 ```go
+
+/*
+ProductRESTController.PostProduct
+This syntax states that an instance of ProductRESTController will have a function called PostProduct.
+This function takes in c (request context)
+*/ 
 func (h *ProductRESTController) PostProduct(c *gin.Context) {
 
+	/*
+	Here we are declaring a struct "request" with attributes ProductNumber and Email
+	The syntax to the right states the type of the attribute
+
+	Initially all attributes are "" (empty string)
+	*/
 	var request struct {
 		ProductNumber string `json:"product_number" validate:"required"`
 		Email        string `json:"email" validate:"required,email"`
 	}
 
-	if err := c.ShouldBindJSON(&requestBody); err != nil {
+	// Here we are binding the body to the struct created above
+	// If we are unable to bind we get an error
+	if err := c.ShouldBindJSON(&request); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"success": false,
 			"message": "Invalid request body",
 		})
 		return
 	}
-	validate := validator.New()
 
-  if err := validate.Struct(requestBody); err != nil {
+	/* 
+		Go has a built in validator
+		So we use the validator here to validate the rules we applied to request above
+		
+		ie: validate:"required, email"
+	*/
+	validate := validator.New()
+  if err := validate.Struct(request); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"success": false,
 			"message": "Invalid request body",
@@ -61,7 +81,10 @@ func (h *ProductRESTController) PostProduct(c *gin.Context) {
 	if !isValid(c, data, err) {
 		return
 	}
-
+	/* 
+		We create a dynamodb friendly input and prepare
+		the db statement to pass into dynamoSVC.PutItem
+	*/
 	item := map[string]*dynamodb.AttributeValue{
 		"user_email": {
 			S: aws.String(request.Email),
@@ -109,23 +132,43 @@ So when unit testing these endpoints I don't want to test the other imported fun
 
 By mocking these imported tools, I can concentrate on how my endpoints validate incoming data and handle scenarios involving invalid or missing data.
 
-After reviewing how other developers handle mocking modules, it appeared that I could either create a wrapper function that accepts the library as an argument or inject the libraries directly into the Controller. I deemed a wrapper function to be excessive, so I opted for Dependency Injection.
+After reviewing how other developers in Go handle mocking modules, it appeared that I could either create a wrapper function that accepts the library as an argument or inject the libraries directly into the Controller. I deemed a wrapper function to be excessive, so I opted for Dependency Injection.
 
 > Dependency injection is a programming technique where an object or function is provided with the objects or functions it needs, rather than creating them internally.[Wiki](https://en.wikipedia.org/wiki/Dependency_injection)
 
 ## Injection at Creation
 ```go
 // DynamoDB.go
+/*
+	Service is a struct that holds an attriute Db
+	Db is declared with an interface of dynamodbiface.DynamoDBAPI
+*/
 type Service struct {
 	Db dynamodbiface.DynamoDBAPI
 }
 
 // Product.go
+/*
+	This struct declares what the controller looks like
+	Attributes:
+	- FetchS3Object: A function that takes a string and returns a tuple containing a product and error
+	- dynamoSvc: An instance of the type Service (see struct above)
+*/
 type ProductRESTController struct{
 	FetchS3Object func(string) (models.Product, error)
 	dynamoSvc *dynamodbUtils.Service
 }
 
+/*
+	You can think of this function as a factory function. Each time it is called it will create a new
+	Controller.
+	
+	Args:
+	- getObj: a function that takes a string and returns a tuple response
+	- dynamoInstance: an instance of the type Service
+
+	return: An instnace of ProductRestCongtroller
+*/
 func NewProductRESTController(getObj func(string) (models.Product, error), dynamoInstance *dynamodbUtils.Service) *ProductRESTController {
 	return &PRoductController{
 		FetchS3Object: getObj,
@@ -134,6 +177,10 @@ func NewProductRESTController(getObj func(string) (models.Product, error), dynam
 }
 
 // routes.go
+/*
+	In our routes file we create the instances and gatehr the libraries needed.
+	Using the factory function we create a new controller with everything it needs.
+*/
 dynamoSvc :=dbUtils.InitDynamo()
 product := controllers.NewProductController(s3Client.FetchS3Object, dynamoSvc)
 ```
@@ -146,6 +193,7 @@ Returning to our code within the controller, we can now utilize the libraries th
 func (h *ProductRESTController) PostProduct(c *gin.Context) {
 .......
 .......
+
 // ----- old -----
 	data, err := fetchS3Object(request.ProductNumber)
 	.....
@@ -162,10 +210,15 @@ func (h *ProductRESTController) PostProduct(c *gin.Context) {
 	_, err = h.dynamoSvc.Db.PutItem()
 // ----- end new  -----
 ```
+The important thing to notice above is that we are now using `h` the variable references the current instance.
+We don't worry about how the dependencies are created we are simply using them.
 
 ### Why is this easier for testing purposes?
 
 ```go
+/*
+	This mock function will always return a "valid Product" and nil as the error
+*/
 func SuccessfulProduct(ProductNumber string) (models.Product error) {
 	completeProductData := models.Product{
 		ProductNumber: "3453453",
@@ -174,10 +227,17 @@ func SuccessfulProduct(ProductNumber string) (models.Product error) {
 	return completeProductData, nil
 }
 
+// This is just a Service with an dummy client
 var mockDbService = &dynamodbUtils.Service{
 	Db: &DynamodbMockClient{},
 }
 
+/*
+	This tests just sets up the router and controller needed to make a call
+	We create our controller with the mocked dependencies
+	We register the post endpoint /product/ with the controler method we want to test
+	Then we perform the request and assert that it behaves as designed.
+*/
 func TestPostProduct_200(t *testing.T) {
 	mockFetchS3Object := SuccessfulProduct
 	gin.SetMode(gin.TestMode)
@@ -198,7 +258,7 @@ With the implemented changes, mocking out dependencies is simplified. I devised 
 This approach enables me to concentrate solely on the endpoint's behavior. The key functionalities I aim to test are:
 1. Whether my endpoint correctly processes a valid body.
 2. How it handles a partially valid body.
-3. Its response when provided with an invalid body.
+3. How it handles an invalid body.
 
 ### Wrap up
 We're not only offering a superior testing approach, but also crafting cleaner code and ensuring modularity by making modules independent from other services. The controller shouldn't concern itself with initialization; its focus should be solely on usage: "How do I utilize it? What APIs are available to me?"
