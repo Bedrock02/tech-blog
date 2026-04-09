@@ -8,9 +8,12 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": "24.x"
+  },
   "dependencies": {
     "@next/font": "13.1.1",
-    "@types/node": "18.11.18",
+    "@types/node": "^24.0.0",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
     "@vercel/analytics": "^0.1.8",
