@@ -3,6 +3,7 @@ import fs from 'fs';
 import matter from "gray-matter";
 import Head from 'next/head';
 import { PostMeta } from "types";
+import { IoLibraryOutline } from 'react-icons/io5';
 
 interface Post {
   slug: string
@@ -21,6 +22,11 @@ export default function Home(props: HomeProps) {
         <link rel="payload" href="/images/pexels-stephan-seeber-1054218.jpg" as="image"></link>
       </Head>
       <div className="flex flex-row flex-wrap gap-20 py-20 w-4/5 mx-auto justify-center">
+        <div className="bg-violet-900 text-stone-200 p-10 rounded-md flex justify-between gap-3 items-center">
+          <p className="w-full">Welcome to my tech notes. The notes below are based on my personal experience and opinions on topics regarding
+            software engineering. I am constantly learning and looking for ways to share my knowledge. Read along and let me know what you think.
+          </p>
+        </div>
         {posts.map((post,index)=>(
           <Card key={index} post={post} />
         ))}
