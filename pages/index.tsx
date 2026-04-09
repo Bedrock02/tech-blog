@@ -19,6 +19,7 @@ export default function Home(props: HomeProps) {
   return (
     <>
       <Head>
+        <title>Tech Notes | WepaDev</title>
         <link rel="payload" href="/images/pexels-stephan-seeber-1054218.jpg" as="image"></link>
       </Head>
       <div className="flex flex-row flex-wrap gap-20 py-20 w-4/5 mx-auto justify-center">

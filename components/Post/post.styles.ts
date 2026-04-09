@@ -2,36 +2,48 @@ import { generateTailWindStrings } from "lib/utils";
 
 const postStyles = generateTailWindStrings({
     articleContainer: [
-        'bg-gray-100',
-        'prose',
-        'max-w-full',
+        'bg-white',
+        'max-w-3xl',
         'mx-auto',
         'px-6',
-        'pb-20',
+        'pb-24',
+        'prose',
+        'prose-headings:text-gray-900',
+        'prose-headings:font-bold',
+        'prose-p:text-gray-600',
+        'prose-p:leading-relaxed',
+        'prose-a:text-violet-700',
+        'prose-a:no-underline',
+        'hover:prose-a:underline',
     ],
     header: [
-        'align-middle',
+        'border-b',
+        'border-gray-100',
         'flex',
         'flex-col',
         'items-center',
-        'justify-evenly',
-        'py-10',
+        'mb-10',
+        'not-prose',
+        'pb-10',
+        'pt-16',
         'text-center',
     ],
     metaDesc: [
-        'w-3/5',
-        'text-center',
+        'mt-3',
+        'text-gray-400',
         'text-base',
-        'text-stone-500',
+        'w-4/5',
     ],
     metaData: [
         'flex',
-        'flex-col',
+        'flex-row',
+        'gap-5',
         'items-center',
-        'justify-around',
-        'text-stone-500',
-        'w-3/5',
-        'text-violet-900',
+        'justify-center',
+        'mt-5',
+        'text-violet-700',
+        'text-sm',
+        'font-medium',
     ],
     metaDataItem: [
         'flex',
@@ -40,11 +52,10 @@ const postStyles = generateTailWindStrings({
         'gap-1',
     ],
     content: [
-        'border-t-2',
-        'border-t-stone-500',
-        'py-20',
+        'border-t',
+        'border-gray-100',
+        'pt-10',
     ]
-
 });
 
 export default postStyles;

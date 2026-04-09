@@ -12,10 +12,15 @@ const styles = {
         'gap-1'
     ],
     tag: [
-        'bg-violet-900',
+        'border',
+        'border-violet-300',
+        'font-medium',
         'px-3',
-        'rounded-lg',
-        'text-slate-50',
+        'py-0.5',
+        'rounded-full',
+        'text-violet-700',
+        'text-xs',
+        'tracking-wide',
     ]
 };
 

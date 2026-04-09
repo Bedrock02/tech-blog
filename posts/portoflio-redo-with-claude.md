@@ -1,7 +1,7 @@
 ---
 title: 'I Used Claude Code to Redo My Portfolio, and It Changed How I Think About Engineering'
 metaDesc: 'How AI-assisted development with Claude Code transformed my portfolio and reshaped my perspective on modern engineering workflows.'
-date: 'April 9th, 2026'
+date: 'April 9, 2026'
 tags:
   - portfolio
   - claude

@@ -11,20 +11,18 @@ interface CardProps {
 const Card = ({ post }: CardProps) => {
   const { slug, data: { date, metaDesc, title, tags } } = post;
   return (
-    <div className={cardStyles.container}>
+    <Link href={`blog/${slug}`} className={cardStyles.container}>
       <h1 className={cardStyles.title}>
           {title}
       </h1>
       <p className={cardStyles.date}>{date}</p>
       <p className={cardStyles.metaData}>{metaDesc}</p>
-      <Link className="text-sky-600" href={`blog/${slug}`}>
-        <div className={cardStyles.readMore}>
-          <AiFillRead />
-          <span>Read More</span>
-        </div>
-      </Link>
+      <div className={cardStyles.readMore}>
+        <AiFillRead />
+        <span>Read More</span>
+      </div>
       <Tags tags={tags} />
-    </div>
+    </Link>
   );
 };
 
