@@ -77,10 +77,10 @@ Since we have npm libraries that do the heavy lifting for us, I rarely have to c
 - In 1 Second there are 1000 milliseconds
 
 Convert milliseconds to days:
-milliseconds / 1000 seconds -> seconds
-seconds / 60 minutes -> minutes
-minutes / 60 hours -> hours
-hours / 24 days -> days
+- milliseconds / 1000 = seconds
+- seconds / 60 = minutes
+- minutes / 60 = hours
+- hours / 24 = days
 
 ```javascript
 const date1 = new Date('2023-10-15');
