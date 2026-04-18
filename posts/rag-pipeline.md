@@ -96,7 +96,7 @@ My resume lives as a PDF, which isn't directly usable. I used PDF Plumber to ext
 
 **Phase 2 — Ingestion (`ingest.py`)**
 
-This is the script that actually populates Pinecone. It reads the `.md` files and takes it from there.
+This is the script that actually populates Pinecone. It reads the `.md` files and takes them from there.
 
 The chunking strategy was one of the more deliberate decisions. Instead of splitting by character count, I split by `##` headings — each chunk keeps its heading so the context stays intact when it gets retrieved later:
 
@@ -171,9 +171,9 @@ My flow looked like:
 - I write the code  
 - Claude reviews it  
 - suggests improvements  
-- explains *why* things work  
+- explains *why* things work.
 
-That created a teacher–student dynamic.
+That created a teacher—student dynamic.
 As someone who learns by doing, this was perfect.
 
 I wasn’t just copying patterns—I was actually understanding them while building.
