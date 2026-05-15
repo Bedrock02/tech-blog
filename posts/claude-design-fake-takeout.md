@@ -1,6 +1,6 @@
 ---
 title: 'We Turned Homemade Food Into Fake Takeout Using Claude Design in 45 Minutes'
-metaDesc: 'What started as a joke about covering up a Kohl's bag turned into a full logo design session with Claude Design and sticker printing.'
+metaDesc: "What started as a joke about covering up a Kohl's bag turned into a full logo design session with Claude Design and sticker printing."
 date: 'May 14, 2026'
 tags:
   - claude
