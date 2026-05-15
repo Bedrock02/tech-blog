@@ -1,6 +1,6 @@
 ---
 title: 'We Turned Homemade Food Into Fake Takeout Using Claude Design in 45 Minutes'
-metaDesc: "What started as a joke about covering up a Kohl's bag turned into a full logo design session with Claude Design and sticker printing."
+metaDesc: "What started as a joke about covering up a Kohl's bag, turned into a full logo design session with Claude Design and sticker printing."
 date: 'May 14, 2026'
 tags:
   - claude
@@ -8,7 +8,7 @@ tags:
   - ai
 ---
 
-My sister-in-law was flying in from Vegas. We usually eat together on Wednesdays, and since they were arriving right around dinner time, my partner and I decided to just make food for everyone. We made chicken and broccoli — a recipe we've made before that's actually really good. If you want to try it yourself, [this is the YouTube video we followed](https://www.youtube.com/watch?v=K47wi0Vb-Tc).
+My sister-in-law was flying in from Vegas. We usually eat together on Wednesdays, and since they were arriving right around dinner time, my partner and I decided to just make food for everyone. We made chicken and broccoli, a recipe we've made before that's actually really good. If you want to try it yourself, [this is the YouTube video we followed](https://www.youtube.com/watch?v=K47wi0Vb-Tc).
 
 ![Chicken and broccoli with rice and sauce packed up](/images/wok-food-packing.jpeg)
 
@@ -16,7 +16,7 @@ At some point we started joking about packaging everything up like it was takeou
 
 ## It Started With a Kohl's Bag
 
-We grabbed a Kohl's bag to pack the food into containers. Then my partner goes, "Is there any way to cover up the Kohl's logo? It would look so much more like real takeout." I said, "Why don't we just make a logo and put it over it?"
+We grabbed a Kohl's bag to pack the food into containers. Then my partner goes, "Is there any way to cover up the Kohl's logo? It would look so much more like real takeout." I said, "What if we just made a logo and covered it up?"
 
 That one comment turned a silly joke into a 30-45 minute creative sprint. From that point on we were fully committed.
 
@@ -42,18 +42,18 @@ We have vinyl sticker paper, so we printed the logos out and put them on all the
 
 ![All containers labeled with Wok This Way stickers](/images/wok-containers.jpeg)
 
-Then we leaned into it even more. We threw in some takeout utensils, leftover soy sauce and hot sauce packets, and a few wet nap packets we had lying around. At that point it looked like a real order. My sister-in-law did not see it coming.
+Then we leaned into it even more. We threw in some takeout utensils, leftover soy sauce, hot sauce, and a few wet naps we had around. At that point it looked like a real order. My sister-in-law did not see it coming.
 
 ![Chicken and broccoli ready to serve](/images/wok-chicken-broccoli.jpeg)
 
 ## What Made This Fun
 
-The whole thing was a last minute, we-have-45-minutes idea. It wasn't a planned project. It started as a joke about a bag, turned into a logo brainstorm, became a design session, and ended with stickers on containers and a fake takeout spread.
+The whole thing was a last minute idea. It wasn't a planned project. What started as a joke about a bag, turned into a logo brainstorm, which then became a design session, and ended with stickers on containers.
 
 Claude Design handled the part that would have been the bottleneck. Getting from "we have a rough logo idea" to "we have two clean, printable logo files" used to take time. Now it doesn't.
 
 That's kind of the point. Not every use case for these tools has to be serious. Sometimes you're just trying to make dinner feel like an experience and you need a logo in 10 minutes.
 
-This one was for fun. But it's a good reminder that the bar to do something creative just keeps getting lower.
+This one was for fun. The tools are there, you just have to be willing to run with a silly idea..
 
 ![WhatsApp reaction when my sister-in-law received the fake takeout](/images/wok-reaction.jpeg)
