@@ -42,7 +42,7 @@ We have vinyl sticker paper, so we printed the logos out and put them on all the
 
 ![All containers labeled with Wok This Way stickers](/images/wok-containers.jpeg)
 
-Then we leaned into it even more. We threw in some takeout utensils, leftover soy sauce and hot sauce packets, and a few wet nap packets we had lying around. At that point it looked like a real order. My sister-in-law did not see it coming.
+Then we leaned into it even more. We threw in some takeout utensils, leftover soy sauce and hot sauce packets, and a few wet naps we had lying around. At that point it looked like a real order. My sister-in-law did not see it coming.
 
 ![Chicken and broccoli ready to serve](/images/wok-chicken-broccoli.jpeg)
 
