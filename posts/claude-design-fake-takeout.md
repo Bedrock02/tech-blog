@@ -55,3 +55,5 @@ Claude Design handled the part that would have been the bottleneck. Getting from
 That's kind of the point. Not every use case for these tools has to be serious. Sometimes you're just trying to make dinner feel like an experience and you need a logo in 10 minutes.
 
 This one was for fun. But it's a good reminder that the bar to do something creative just keeps getting lower.
+
+![WhatsApp reaction when my sister-in-law received the fake takeout](/images/wok-reaction.jpeg)
