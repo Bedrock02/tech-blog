@@ -6,6 +6,7 @@ import { AiOutlineArrowLeft } from 'react-icons/ai';
 import rehypeRaw from 'rehype-raw';
 import CodeBlock from 'components/CodeBlock/codeBlock';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Props {
     title: string,
@@ -36,12 +37,29 @@ interface PostContentProps {
   content: string
 }
 
+const markdownComponents = {
+  ...CodeBlock,
+  // @ts-ignore
+  img({ src, alt }) {
+    return (
+      <Image
+        src={src || ''}
+        alt={alt || ''}
+        width={0}
+        height={0}
+        sizes="100vw"
+        style={{ width: '100%', height: 'auto' }}
+      />
+    );
+  },
+};
+
 const PostContent = ({ content }: PostContentProps) => (
   <article>
     <ReactMarkdown
       rehypePlugins={[rehypeRaw]}
       //@ts-ignore
-      components={CodeBlock}
+      components={markdownComponents}
     >
       {content}
     </ReactMarkdown>
