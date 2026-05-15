@@ -56,3 +56,4 @@ That's kind of the point. Not every use case for these tools has to be serious. 
 
 This one was for fun. The tools are there, you just have to be willing to run with a silly idea
 
+![Chicken and broccoli delivered](/images/wok-delivery.jpeg)
